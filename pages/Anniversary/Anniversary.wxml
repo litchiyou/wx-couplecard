@@ -1,0 +1,7 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+   <image src="https://cloud-minapp-23784.cloud.ifanrusercontent.com/1gmCGM8gaCwEdCVJ.jpg" class="side-img" bindtap='navigateTo'></image>
+   <text class="text" style='position:absolute;font-size:25px;color:white;'>我们在一起</text>
+   <view class="time" style='position:absolute;color:white;'>{{time}}</view>
+   <text class="date" style='position:absolute;font-size:25px;color:white;'>{{date}}</text>
+</view>

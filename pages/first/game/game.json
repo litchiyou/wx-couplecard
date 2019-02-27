@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "小游戏",
+  "navigationBarBackgroundColor": "#FFF5EE",
+  "usingComponents": {
+    "zhuanpan": "/pages/first/game/choujiang/choujiang"
+  }
+}

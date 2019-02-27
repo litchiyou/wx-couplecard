@@ -1,0 +1,42 @@
+<!--pages/first/first.wxml-->
+<view wx:if="{{weather == ''}}">
+  请稍后...
+</view>
+<view wx:else>
+  <!-- 基本信息 -->
+  <view class='wheather-basic'>
+    <!-- w-2样式布局 -->
+    <view class='city' bindtap='navigateToCitys'>{{weather.now.aqiDetail.area}}</view>
+    <image src="{{weather.now.weather_pic}}"></image>
+    <view class='temperature'>
+      {{weather.now.temperature}}
+      <text class='unit'>℃</text>
+    </view>
+    <view class='wheather'>{{weather.now.weather}}</view>
+    <view class='temp-high-low' style='padding-top:10px'>
+      {{weather.f1.night_air_temperature}}℃ ～ {{weather.f1.day_air_temperature}}℃
+    </view>
+    <view class='temp-high-low' style='padding-top:10px'>
+      <label class='week' style='padding-right:10px'>星期{{weather.f1.weekday}}</label>
+    </view>
+  </view>
+  <!-- 内容 -->
+  <view class='wheather-detail'>
+  <scroll-view  scroll-x="true" class='weather-scroll' style='left:0;bottom:8px;position:absolute;'>
+    <view class='item-hourly' wx:for="{{weather.f1['3hourForcast']}}" wx:key="item.time">
+      <view>{{item.hour}}</view>
+      <image src='{{item.weather_pic}}'> </image>
+      <view>{{item.temperature}}℃</view>
+      <view>{{item.weather}}</view>
+    </view>
+  </scroll-view>
+  </view>
+</view>
+
+<!--信封接口-->
+<image src="../../image/xin.png" class="xin-click" bindtap="navigateToXin">
+</image>
+<!--圆形点击框  -->
+<image src="../../image/zhuanpan.png" class="round-click" bindtap="navigateTo">
+</image>
+

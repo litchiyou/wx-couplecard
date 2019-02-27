@@ -1,0 +1,14 @@
+<!--pages/first/xin/add/add.wxml-->
+    <textarea class="content" placeholder="请输入文字，不能为空" placeholder-class="placeholder" bindinput="change" value="{{content}}" maxlength="-1"></textarea>
+    <view class='time-select-view'>
+      <picker mode="date" value="{{date}}" start="1990-01-01" end="2100-01-01" bindchange="bindDateChange">
+        <view class="picker">
+          时间: {{date}}
+        </view>
+      </picker>
+    </view>
+  <view class="btns">
+    <view class="sure" bindtap="sure">确定</view>
+    <view class="cancel" bindtap="cancel">取消</view>
+  </view>
+

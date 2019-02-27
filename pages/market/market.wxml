@@ -1,0 +1,29 @@
+<!--左侧栏-->  
+<view class="nav_left">  
+  <view wx:for="{{navLeftItems}}" wx:key="navLeftItems"> 
+    <view class="nav_left_items {{curNav == item.leftID ? 'active' : ''}}" bindtap="switchRightTab"  data-id="{{item.leftID}}">{{item.data}}</view>  
+  </view>
+  <view class="classification">分类设置</view>
+  <image class="mine" src='../../image/mine.png' bindtap='mingTap'></image>
+  <form bindsubmit="submit" report-submit='true' >
+    <image form-type="submit" class="buy" src='../../image/goumai.png' bindtap='buyTap'></image>
+  </form>
+</view>
+  <!--右侧栏-->
+<scroll-view class="nav_right" scroll-y="true">
+  <view wx:if="{{navRightItems}}" wx:for="{{navRightItems}}" wx:key="{{navRightItems.leftID}}">
+    <view class="nav_right_items">
+      <image class="nav_right_items_image" src="{{item.image.path}}"></image>
+        <view class="nav_right_items_right">
+          <view class="nav_right_items_text">{{item.name}}</view>
+          <view class="nav_right_items_num">
+            <text bindtap="minusCount" data-index="{{index}}">-  </text>
+            <text>{{item.num}}</text>
+            <text bindtap="addCount" data-index="{{index}}"> +</text>
+          </view>
+        </view>
+        <view class="iconfont icon-xuanze" wx:if="{{item.selected==false}}" type="circle"   bindtap="selectList" data-index="{{index}}"/>
+        <view class="iconfont icon-xuanze" wx:if="{{item.selected==true}}" style="color:#EE6363;" bindtap="selectList" data-index="{{index}}"/>
+      </view>
+    </view>
+</scroll-view>

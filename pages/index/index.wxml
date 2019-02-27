@@ -1,0 +1,23 @@
+<!--pages/index/index.wxml-->
+<audio src="{{srcMusic}}" id="myAudio"></audio>
+<image src="https://cloud-minapp-23784.cloud.ifanrusercontent.com/1gja5HVAMJtSwwPD.png" class='rotateAn' bindtap='controlMusic'></image>
+<!--红包雨-->
+<view wx:for="{{packetList}}" wx:key="key" wx:for-index="index" wx:for-item="items">
+  <image class="red-packet" src="{{items.src}}" style="position:fixed;top:{{items.top}}px;left:{{items.left}}px;-webkit-transition:{{items.speed}}ms linear 0ms;transition:{{items.speed}}ms linear 0ms" >
+  </image>
+</view>
+<!--内容-->
+<view class="container" style='height:100%'>
+<swiper class="swiper" indicator-dots="{{indcatorDots}}" autoplay="{{autoPlay}}" duration="{{duration}}" vertical="{{vertical}}" style="height:100%;">
+  <block wx:for="{{swiperItems}}" wx:for-index="index"  wx:key="swiperItems.id" class="image" wx:for-item="i">
+      <swiper-item style="display:inline-block;top:5;left:0;right:0;border:0">
+        <view class="story" style="z-index:100;position:absolute;font-size:15px;width:100%;bottom:25%;color:#EE6363;left:2px;overflow: hidden;white-space:nowrap;border-right: 0.2em solid; animation: typing 5s steps(23), caret 0.5s steps(1) infinite">{{i.story}}</view>
+        <image src="{{i.imgUrls}}" class="side-img" style="height:83%;width:95%;position:absolute;top:10px;left:8px; border-radius: 15px;" data-src='{{item}}' data-index='{{index}}'></image>
+      </swiper-item>
+  </block>
+</swiper>
+<form bindsubmit="submit" report-submit='true' >
+  <button form-type="submit" class="login-btn" open-type="getUserInfo" bindgetuserinfo="userInfoHandler">进入小程序</button>
+</form>
+</view>
+

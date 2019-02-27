@@ -1,0 +1,173 @@
+/* pages/first/first.wxss */
+page{
+  height: 100%;
+  width: 100;
+}
+.round-click{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 30%;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+  animation: rotate 60s linear infinite;
+}
+.xin-click{
+  height: 120rpx;
+  width: 120rpx;
+  position: fixed;
+  right: 20rpx;
+  top: 40%;
+}
+
+@keyframes rotate{
+  form{transform: rotate(0deg)}
+  to{transform: rotate(3600deg)}
+}
+
+.round-click navigator{
+    font-size: 32rpx;
+    max-width: 100rpx;
+    color: #fff;
+    text-align: center;
+}
+
+.wheather-basic {
+  height: 270px;
+  text-align: center;
+  color: #666;
+}
+
+.wheather-basic .city {
+  /*城市信息*/
+  position: relative;
+  top: 10px;
+  left: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.wheather-basic image {
+  height: 91.5px;
+  width: 103.5px;
+  margin-top: -40px;
+}
+
+.wheather-basic .temperature {
+  font-size: 60px;
+  margin-top: 8px;
+}
+
+.wheather-basic .temperature .unit {
+  font-size: 25px;
+  vertical-align: text-top;
+  margin-left: -10px;
+}
+
+.wheather-basic .wheather {
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.wheather-basic .temp-high-low {
+  font-size: 16px;
+   margin-top: 10px;
+}
+
+.wheather-basic .temp-high-low .week {
+  position: relative;
+  left: 0px;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
+
+.wheather-basic .temp-high-low .temp {
+  margin-right: 15px;
+}
+
+
+.wheather-detail {
+  bottom: 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.wheather-detail .title {
+  height: 30px;
+}
+
+.wheather-detail .navibar-hour {
+  padding-right: 20px;
+  font-size: 18px;
+  color: gray;
+}
+
+.wheather-detail .navibar-hour-selected {
+  padding-right: 20px;
+  font-size: 21px;
+  color: burlywood;
+}
+
+.wheather-detail .navibar-day {
+  padding-left: 20px;
+  font-size: 18px;
+  color: gray;
+}
+
+.wheather-detail .navibar-day-selected {
+  padding-left: 20px;
+  font-size: 21px;
+  color: burlywood;
+}
+
+.wheather-detail .item-hourly {
+  width: 60px;
+  height: 120px;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+  margin: 4px;
+  border: 1px lightgray solid;
+  border-radius: 10px;
+}
+
+.wheather-detail .item-daily {
+  width: 100px;
+  height: 120px;
+  display: inline-block;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+  margin: 4px;
+  border: 1px lightgray solid;
+  border-radius: 10px;
+}
+
+.wheather-detail .item-hourly view {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.wheather-detail .item-daily view {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.wheather-detail  image {
+  height: 25px;
+  width: 25px;
+}
+
+
+.weather-scroll{
+  width:100%;
+  display: inline-block;
+  white-space: nowrap;
+}

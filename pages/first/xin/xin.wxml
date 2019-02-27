@@ -1,0 +1,15 @@
+<!--pages/first/xin/xin.wxml-->
+  <!-- 每一条文字 -->
+  <scroll-view scroll-y='true' class='lists'>
+    <block wx:for="{{lists}}" wx:key="*this.id">
+      <view class="list-i">
+        <view class="content">{{item.text}}</view>
+        <view class='date'>时间：{{item.date}}</view>
+        <view class='sender'>寄件人：{{item.sender}}</view>
+      </view>
+    </block>
+  </scroll-view>
+  <!-- 添加一条文字的按钮 -->
+  <view class='add' bindtap='add'>
+    <image src='../../../image/edit.png'></image>
+  </view>

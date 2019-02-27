@@ -1,0 +1,9 @@
+/**app.wxss**/
+
+page{
+  text-align: center;
+}
+
+.title{
+  color:brown;
+}

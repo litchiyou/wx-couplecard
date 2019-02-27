@@ -1,0 +1,60 @@
+<!-- 切换栏 -->
+<view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+ 
+<swiper current="{{currtab}}" class="swiper-box" duration="300" style="height:{{deviceH-31}}px" bindchange="tabChange">
+  <!-- 完成 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true" style='height:100%'>
+      <view class="orderDetails" wx:for="{{orderItems}}" wx:key="{{orderItems.id}}"  wx:for-index="index" wx:for-item="item">
+        <view class="orderListTitle">
+          <text class="userName">{{item.order_name}}</text>
+          <text class="orderStatus">{{item.status}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.image[0]}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <text class="productName">{{item.name}}</text>
+            <view class="productNum">数量: {{item.num}}</view>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+            <text>数量：{{item.num}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+  <!-- 待付款 -->
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="orderDetails" wx:for="{{orderItems}}" wx:key="{{orderItems.id}}" data-index="{{index}}"  bindtap='clickOrder' wx:for-index="index" wx:for-item="item">
+        <view class="orderListTitle">
+          <text class="userName">{{item.order_name}}</text>
+          <text class="orderStatus">{{item.status}}</text>
+        </view>
+        <view class="orderListDetails">
+          <view class="productImg">
+            <image src="{{item.image[0]}}" background-size="cover"></image>
+          </view>
+          <view class="productInfo">
+            <text class="productName">{{item.name}}</text>
+            <view class="productNum">数量: {{item.num}}</view>
+          </view>
+        </view>
+        <view class="productCount">
+          <view>
+            <text>数量：{{item.num}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </swiper-item>
+</swiper>
+

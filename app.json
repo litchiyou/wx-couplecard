@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/wechat/wechat",
+    "pages/index/index",
+    "pages/first/xin/xin",
+    "pages/market/mine/mine",
+    "pages/first/first",
+    "pages/first/game/edit/edit",
+    "pages/market/market",
+    "pages/Anniversary/Anniversary",
+    "pages/Anniversary/Anniver/Anniver",
+    "pages/Anniversary/detailAnniver/detailAnniver",
+    "pages/Anniversary/newAnniver/newAnniver",
+    "pages/first/game/game",
+    "pages/first/game/choujiang/choujiang",
+    "pages/first/list/list",
+    "pages/first/xin/add/add",
+    "pages/first/citys/citys",
+    "pages/wechat/chat/chat"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF5EE",
+    "navigationBarTitleText": "年少有未",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "sdkPlugin": {
+      "version": "1.15.0",
+      "provider": "wxc6b86e382a1e3294"
+    }
+  },
+  "tabBar": {
+    "backgroundColor": "#dfdfdf",
+    "list": [
+      {
+        "pagePath": "pages/first/first",
+        "text": "首页",
+        "iconPath": "image/icon-first.png",
+        "selectedIconPath": "image/icon-first-select.png"
+      },
+      {
+        "pagePath": "pages/market/market",
+        "text": "商城",
+        "iconPath": "image/icon-market.png",
+        "selectedIconPath": "image/icon-market-select.png"
+      },
+      {
+        "pagePath": "pages/Anniversary/Anniversary",
+        "text": "纪念日",
+        "iconPath": "image/icon-anniversary.png",
+        "selectedIconPath": "image/icon-anniversary-select.png"
+      },
+      {
+        "pagePath": "pages/wechat/wechat",
+        "text": "聊天室",
+        "iconPath": "image/icon-wechat.png",
+        "selectedIconPath": "image/icon-wechat-select.png"
+      }
+    ]
+  }
+}

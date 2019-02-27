@@ -1,0 +1,27 @@
+<!--pages/index/index.wxml-->
+<view style="height:100%">
+   <view style='width:100%;margin:0 auto;text-align:center;font-size:34rpx;margin-bottom:10rpx;'>{{awardsConfig.option}}</view>
+   <view style='width:100%;margin:0 auto;text-align:center;margin-bottom:44rpx;color:#1078e7;font-size:30rpx'>{{s_awards}}</view>
+   
+   <!-- myAwards就是当被子组件触发时的函数 size:转盘大小 -->
+   <zhuanpan id='zhuanpan' 
+   bind:myData='getData' 
+   bind:myAwards="getAwards" 
+   bind:startZhuan="startZhuan" 
+   size='{{size}}' 
+   musicflg='{{musicflg}}' 
+   fastJuedin='{{fastJuedin}}' 
+   repeat='{{repeat}}' 
+   zhuanpanArr='{{xiaojuedingArr}}' 
+   awardsConfig='{{awardsConfig}}'>
+   </zhuanpan>
+
+   <view style='margin-top:60rpx'></view>
+
+   <view class='juedinoption' wx:for='{{xiaojuedingArr}}' wx:key='key' wx:if='{{index<3}}' bindtap='xiaojueding' data-idx='{{index}}'>{{item.option}}</view>
+</view>
+
+<!--圆形悬浮球-->
+<view class="round-click">
+   <navigator url='/pages/first/list/list'>设置</navigator >
+</view>

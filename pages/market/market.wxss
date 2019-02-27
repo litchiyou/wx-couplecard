@@ -1,0 +1,152 @@
+@import "../../lib/icon-xuanze.wxss";
+/* pages/market/market.wxss */
+page{  
+  background: #f5f5f5;
+  height: 100%;
+}  
+/*点单盒子*/
+.navbar{
+  flex: none;
+  display: flex;
+  background: #FFF5EE;
+}
+.navbar .item{
+  position: relative;
+  flex: auto;
+  width: 50%;
+  text-align: center;
+  line-height: 80rpx;
+  font-size:18px;
+}
+.navbar .item.active{
+  font-family: "黑体";
+  color: #EE6363;
+}
+.navbar .item.active:after{
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: #FFCC00;
+}
+
+/*左侧栏主盒子*/  
+.nav_left{  
+  /*设置行内块级元素（没使用定位）*/   
+  width: 25%;  
+  height: 100%;
+  left:0;  
+  /*主盒子设置背景色为灰色*/  
+  background: #f5f5f5;
+  text-align: center;
+  color: black;
+  position: absolute;
+}  
+/*左侧栏list的item*/  
+.nav_left .nav_left_items{  
+  /*每个高30px*/  
+  height: 30px;
+  /*垂直居中*/  
+  line-height: 30px;  
+  /*再设上下padding增加高度，总高42px*/  
+  padding: 6px 0;  
+  /*只设下边线*/  
+  border-bottom: 1px solid #dedede;  
+  /*文字14px*/  
+  font-size: 14px;
+}
+.nav_left .classification{
+  margin-top:10px;
+  height: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #EE6363;
+}
+.nav_left .nav_left_items.active{  
+  /*背景色变成白色*/  
+  background: #fff;
+  font-family: "黑体";
+  color: #EE6363;
+  font-weight: bold;  
+}
+
+.nav_left .mine{
+  height: 40px;
+  width: 40px;
+  margin-top: 20px;
+  left: 20px;
+  bottom: 8px;
+  position: absolute;
+}
+.nav_left .buy{
+  height: 40px;
+  width: 40px;
+  left: 20px;
+  bottom: 12%;
+  position: absolute;
+  z-index: 100;
+}
+
+
+/*右侧栏主盒子*/  
+.nav_right{  
+  /*右侧盒子使用了绝对定位*/  
+  position: absolute;  
+  top: 0;  
+  right: 0;  
+  flex: 1;  
+  /*宽度75%，高度占满，并使用百分比布局*/  
+  width: 75%;  
+  height: 100%;  
+  padding: 8px;  
+  box-sizing: border-box;
+  background-color:white;
+  display: inline-block;
+} 
+
+/*右侧栏list的item*/  
+.nav_right .nav_right_items{  
+  display: flex;
+  width: 100%;  
+  height: 80px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #dedede;
+}
+.nav_right .nav_right_items_image{  
+  /*被图片设置宽高*/  
+  width: 75px;  
+  height: 75px;
+  line-height: 80px;
+  border-radius: 5px;
+  left: 5px;
+}
+
+.nav_right_items_right{
+  display: inline-block;
+  width: 50%;
+  margin-left: 5px;
+  text-align:justify;
+}
+
+.nav_right .nav_right_items_text{  
+  /*给text设成块级元素*/  
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;  
+  /*设置文字溢出部分为...*/   
+  text-overflow: ellipsis;
+  color: black;
+}
+
+.nav_right .nav_right_items_num{  
+  /*给text设成块级元素*/  
+  display: block;  
+  margin-top: 10px;
+  font-size: 18px;  
+  /*设置文字溢出部分为...*/  
+  color:black;
+} 
