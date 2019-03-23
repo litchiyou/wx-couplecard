@@ -1,4 +1,4 @@
-// pages/wechat/chat/chat.js
+// pages/wechat/chat/chat.jsme
 const app = getApp()
 var websocket = require('../../../utils/websocket.js')
 var utils = require('../../../utils/util.js')
@@ -9,7 +9,8 @@ Page({
     */
   data: {
     newslist: [],
-    userInfo: {},
+    userInfo: app.globalData.userInfo,
+    hasUserInfo: false,
     scrollTop: 0,
     increase: false,//图片添加区域隐藏
     aniStyle: true,//动画效果
@@ -21,20 +22,50 @@ Page({
    */
   onLoad: function () {
     var that = this
+    console.log(app.globalData.userInfo)
     if (app.globalData.userInfo) {
       this.setData({
-        userInfo: app.globalData.userInfo
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
       })
     }
-    //调通接口
-    websocket.connect(this.data.userInfo, function (res) {
-      // console.log(JSON.parse(res.data))
+
+    websocket.connect(this.userInfo, function (res) {
+      console.log(JSON.parse(res.data))
       var list = []
       list = that.data.newslist
       list.push(JSON.parse(res.data))
       that.setData({
         newslist: list
       })
+    })
+  },
+  getUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
     })
   },
   // 页面卸载
@@ -61,7 +92,7 @@ Page({
           increase: false
         })
       }, 500)
-      websocket.send('{ "content": "' + this.data.message + '", "date": "' + utils.formatTime(new Date()) + '","type":"text", "nickName": "' + this.data.userInfo.nickName + '", "avatarUrl": "' + this.data.userInfo.avatarUrl + '" }')
+      websocket.send('{ "content": "' + this.data.message + '", "type":"text", "nickName": "' + this.data.userInfo.nickname + '", "avatarUrl": "' + this.data.userInfo.avatar + '" }')
       this.bottom()
     }
   },
@@ -99,28 +130,30 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         var tempFilePaths = res.tempFilePaths
-        // console.log(tempFilePaths)
         wx.uploadFile({
-          url: 'http://192.168.137.91/index/index/upload', //仅为示例，非真实的接口地址
+          url: 'http://www.liweiwoainimissyou.cn:8080/uploadfile', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           headers: {
             'Content-Type': 'form-data'
           },
           success: function (res) {
+            console.log(res.data)
+            var url = JSON.parse(res.data)
+            console.log(url)
             if (res.data) {
               that.setData({
                 increase: false
               })
-              websocket.send('{"images":"' + res.data + '","date":"' + utils.formatTime(new Date()) + '","type":"image","nickName":"' + that.data.userInfo.nickName + '","avatarUrl":"' + that.data.userInfo.avatarUrl + '"}')
+              websocket.send('{"images":"' + url.image + '","type":"image","nickName":"' + that.data.userInfo.nickname + '","avatarUrl":"' + that.data.userInfo.avatar + '"}')
               that.bottom()
             }
           }
-        })
-
+        })   
       }
     })
   },
+
   //图片预览
   previewImg(e) {
     var that = this

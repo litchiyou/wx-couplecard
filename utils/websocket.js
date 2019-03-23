@@ -1,5 +1,5 @@
 // 聊天室
-var url = 'ws://203.195.205.101:2346';
+var url = 'wss://liweiwoainimissyou.cn/ws';
 // var utils = require('./util.js');
 
 function connect(user,func) {

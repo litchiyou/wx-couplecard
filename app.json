@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/wechat/wechat",
     "pages/index/index",
+    "pages/first/first",
+    "pages/wechat/wechat",
     "pages/first/xin/xin",
     "pages/market/mine/mine",
-    "pages/first/first",
     "pages/first/game/edit/edit",
     "pages/market/market",
     "pages/Anniversary/Anniversary",
@@ -58,7 +58,7 @@
       },
       {
         "pagePath": "pages/wechat/wechat",
-        "text": "聊天室",
+        "text": "Say love",
         "iconPath": "image/icon-wechat.png",
         "selectedIconPath": "image/icon-wechat-select.png"
       }

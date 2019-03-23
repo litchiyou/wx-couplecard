@@ -6,6 +6,6 @@
       <text class="userinfo-nickname">{{userInfo.nickname}}</text>
     </block>
   </view>
-  <view bindtap="toChat"><button class="chat"> ♥ 聊天室 点击进入</button></view>
+  <view bindtap="toChat"><button class="chat"> ♥ Say love</button></view>
 </view>
 

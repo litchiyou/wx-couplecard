@@ -1,5 +1,5 @@
 <view class="news" bindtap='outbtn'>
-   <view class="chat-notice" wx:if="{{userInfo}}">系统消息: 欢迎 {{ userInfo.nickName }} 加入群聊</view>
+   <view class="chat-notice" wx:if="{{userInfo}}">系统消息: 欢迎 {{ userInfo.nickname }} 加入群聊</view>
    <view class="historycon">
    <scroll-view scroll-y="true" class="history" scroll-top="{{scrollTop}}">
     
